@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import './customers.scss'
+import "./customers.scss";
+import Comments from "../comments/Comments";
 
 const Customers = () => {
   return (
-    <div>Customers</div>
-  )
-}
+    <section className="customers ">
+      <div className="customers__wrapper container">
+        <h1>OUR HAPPY CUSTOMERS</h1>
+        <Comments />
+      </div>
+    </section>
+  );
+};
 
-export default Customers
+export default Customers;

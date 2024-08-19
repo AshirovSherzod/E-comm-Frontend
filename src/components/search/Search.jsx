@@ -5,7 +5,7 @@ import './search.scss'
 
 const Search = () => {
   return (
-    <form>
+    <form className='header-search'>
         <button><IoSearch /></button>
         <input type="text" placeholder='Search for products...'/>
     </form>

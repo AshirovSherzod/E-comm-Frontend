@@ -1,0 +1,20 @@
+.empty {
+  padding: 40px 0px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    img {
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+    .empty__wrapper img {
+        width: 60%;
+    }
+}

@@ -1,0 +1,38 @@
+.customers {
+  margin-top: 80px;
+  margin-bottom: 150px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .customers__wrapper {
+    h1 {
+      font-size: 38px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .customers__wrapper {
+    h1 {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .customers__wrapper {
+    h1 {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,12 +1,14 @@
 import React from 'react'
 
 import './hero.scss'
-import img from '../../assets/images/hero-img1.png'
-import img1 from '../../assets/images/hero-1.png'
-import img2 from '../../assets/images/hero-2.png'
-import img3 from '../../assets/images/hero-3.png'
-import img4 from '../../assets/images/hero-4.png'
-import img5 from '../../assets/images/hero-5.png'
+import img from '../../assets/images/hero/hero-img1.png'
+import img1 from '../../assets/images/hero/hero-1.png'
+import img2 from '../../assets/images/hero/hero-2.png'
+import img3 from '../../assets/images/hero/hero-3.png'
+import img4 from '../../assets/images/hero/hero-4.png'
+import img5 from '../../assets/images/hero/hero-5.png'
+
+
 
 
 const Hero = () => {
@@ -15,7 +17,7 @@ const Hero = () => {
       <div className="hero__wrapper container">
         <div className="hero__left">
           <h1>FIND CLOTHES <br /> THAT MATCHES <br /> YOUR STYLE</h1>
-          <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
+          <p>Browse through our diverse range of meticulously crafted garments, <br /> designed to bring out your individuality and cater to your sense of style.</p>
           <button>Shop Now</button>
           <div className="hero__left-result">
             <div className="hero__left-result__card">
@@ -34,7 +36,7 @@ const Hero = () => {
         </div>
         <div className="hero__right">
           <img src={img} alt="" />
-        </div>
+        </div> 
       </div>
       <div className="hero__bottom">
         <div className="hero__bottom-wrapper container">
