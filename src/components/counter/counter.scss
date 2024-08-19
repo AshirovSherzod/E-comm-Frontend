@@ -1,0 +1,21 @@
+.counter {
+  width: 135px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+
+  button {
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+
