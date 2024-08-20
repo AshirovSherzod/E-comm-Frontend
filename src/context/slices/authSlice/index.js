@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  token: localStorage.getItem("x-auth-token") || null,
-  login: {
-    username: "john32",
-    password: "87654321"
-  }
+  token: localStorage.getItem("x-auth-token"),
 };
 
 const authSlice = createSlice({
@@ -13,10 +9,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setToken: (state, action) => {
-      if (action.payload.username === state.login.username && action.payload.password === state.login.password) {
-        state.token = "qwertyASDsdfQSXbhjiWDCFghjk1223qwsdc2";
-        localStorage.setItem("x-auth-token", state.token);
-      }
+      state.token = action.payload;
+      localStorage.setItem("x-auth-token", action.payload);
     },
     logout: (state) => {
       state.token = null;

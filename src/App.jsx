@@ -4,17 +4,24 @@ import Header from "./components/layout/header/Header";
 import Footer from "./components/layout/footer/Footer";
 import Wishlist from "./pages/wishlist/Wishlist";
 import Deatails from "./pages/details/Deatails";
+import Cart from "./pages/cart/Cart";
+import SignIn from "./pages/signIn/SignIn";
+import Auth from "./pages/auth/Auth";
+import Admin from "./pages/admin/Admin";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/details/:id" element={<Deatails />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/" element={<Auth />}>
+          <Route path="/admin" element={<Admin />} />
+        </Route>
       </Routes>
       <Footer />
     </>

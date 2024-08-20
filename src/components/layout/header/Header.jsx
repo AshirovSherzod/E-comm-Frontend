@@ -3,7 +3,7 @@ import { IoClose, IoPersonCircleOutline, IoSearch } from "react-icons/io5";
 
 import "./header.scss";
 import Search from "../../search/Search";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LuShoppingCart } from "react-icons/lu";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa6";
@@ -13,6 +13,7 @@ const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [navToggle, setNavToggle] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,10 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    // if (pathname.includes("/sign-in")) return <></>;
   }, []);
 
   return (
@@ -45,14 +50,14 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <header>
+      <header className={`header ${navToggle ? "toggle" : ""}`}>
         <div className="container">
           <nav className={`nav`}>
             <div className="nav__logo">
               <button onClick={() => setShowSidebar(true)}>
                 <RxHamburgerMenu />
               </button>
-              <Link to={'/'}>
+              <Link to={"/"}>
                 <h1>SHOP.CO</h1>
               </Link>
             </div>
@@ -75,13 +80,13 @@ const Header = () => {
               <button onClick={() => setShowSearch(true)}>
                 <IoSearch />
               </button>
-              <Link to={"#"}>
+              <Link to={"/cart"}>
                 <LuShoppingCart />
               </Link>
               <Link to={"/wishlist"}>
                 <FaRegHeart />
               </Link>
-              <Link to={"#"}>
+              <Link to={"/admin"}>
                 <IoPersonCircleOutline />
               </Link>
             </div>
