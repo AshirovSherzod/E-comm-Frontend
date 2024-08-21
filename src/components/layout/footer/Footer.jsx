@@ -1,7 +1,13 @@
 import React from "react";
 import "./footer.scss";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
+  if (pathname.includes("/sign-in") || pathname.includes("/admin"))
+    return <></>;
+
   return (
     <footer className="footer">
       <div className="footer__wrapper container">
@@ -10,7 +16,7 @@ const Footer = () => {
             STAY UPTO DATE ABOUT <br /> OUR LATEST OFFERS
           </h2>
           <form className="subscribe" action="">
-            <input type="text" placeholder="Enter your email address"/>
+            <input type="text" placeholder="Enter your email address" />
             <button>Subscribe to Newslatter</button>
           </form>
         </div>

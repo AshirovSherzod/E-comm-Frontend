@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { message, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../context/slices/authSlice";
+import { GoArrowUpLeft } from "react-icons/go";
 
 import "./signin.scss";
 import { useSignInAdminMutation } from "../../context/api/adminApi";
-import { useDispatch } from "react-redux";
-import { setToken } from "../../context/slices/authSlice";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
@@ -33,7 +34,7 @@ const SignIn = () => {
   useEffect(() => {
     if (isSuccess) {
       dispatch(setToken(data?.payload?.token));
-      navigate("/admin");
+      navigate("/admin/manageproducts");
     }
   }, [isSuccess]);
 
@@ -48,6 +49,9 @@ const SignIn = () => {
 
   return (
     <section className="sign-in container">
+      <Link to={"/"}>
+        <GoArrowUpLeft /> Go Home
+      </Link>
       <form onSubmit={handleSubmit} className="sign-in__form" action="">
         <div className="sign-in__form-input">
           <label htmlFor="username">Username</label>

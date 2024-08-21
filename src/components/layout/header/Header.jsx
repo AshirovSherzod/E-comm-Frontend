@@ -30,9 +30,7 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // if (pathname.includes("/sign-in")) return <></>;
-  }, []);
+  if (pathname.includes("/sign-in") || pathname.includes("/admin")) return <></>;
 
   return (
     <>

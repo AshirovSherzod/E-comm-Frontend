@@ -8,6 +8,10 @@ import Cart from "./pages/cart/Cart";
 import SignIn from "./pages/signIn/SignIn";
 import Auth from "./pages/auth/Auth";
 import Admin from "./pages/admin/Admin";
+import ManageProducts from "./pages/admin/manageproducts/ManageProducts";
+import CreateProducts from "./pages/admin/createproducts/CreateProducts";
+import ManageAdmins from "./pages/admin/manageadmins/ManageAdmins";
+import CreateAdmins from "./pages/admin/createadmins/CreateAdmins";
 
 function App() {
   return (
@@ -20,7 +24,12 @@ function App() {
         <Route path="/details/:id" element={<Deatails />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/" element={<Auth />}>
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<Admin />}>
+            <Route path="createadmins" element={<CreateAdmins />} />
+            <Route path="manageadmins" element={<ManageAdmins />} />
+            <Route path="manageproducts" element={<ManageProducts />} />
+            <Route path="createproducts" element={<CreateProducts />} />
+          </Route>
         </Route>
       </Routes>
       <Footer />

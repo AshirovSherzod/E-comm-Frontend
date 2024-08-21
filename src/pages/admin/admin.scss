@@ -1,0 +1,10 @@
+.admin {
+  display: flex;
+  flex-direction: row;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
