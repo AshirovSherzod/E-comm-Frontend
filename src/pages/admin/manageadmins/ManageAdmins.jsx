@@ -1,12 +1,15 @@
-import React from "react";
-import { Space, Table } from "antd";
+import React, { useState } from "react";
+import { Space, Table, Modal, Button } from "antd";
 
 import "./manageadmins.scss";
-import { useGetAdminsQuery } from "../../../context/api/adminApi";
+import {
+  useDeleteAdminMutation,
+  useGetAdminsQuery,
+} from "../../../context/api/adminApi";
 
 const ManageAdmins = () => {
   const { data: adminsData } = useGetAdminsQuery();
-  console.log(adminsData);
+  const [deleteAdmin, { data: deleteAdminData }] = useDeleteAdminMutation();
 
   const columns = [
     {
@@ -35,12 +38,13 @@ const ManageAdmins = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
+          <button>Edit</button>
+          
         </Space>
       ),
     },
   ];
+
   const data =
     adminsData?.payload?.map((admin, inx) => ({
       key: `${inx}`,
@@ -48,6 +52,7 @@ const ManageAdmins = () => {
       username: `${admin.username}`,
       phone: `${admin.phone}`,
       role: admin.role,
+      id: admin._id,
     })) || [];
 
   return (

@@ -5,12 +5,16 @@ import { IoStar } from "react-icons/io5";
 import Counter from "../../components/counter/Counter";
 
 import "./details.scss";
+import AbtabDetails from "../../components/abtabdetails/AbtabDetails";
+import AbtabReviews from "../../components/abtabreviews/AbtabReviews";
+import AbtabFaqs from "../../components/abtabfaqs/AbtabFaqs";
 
 const Deatails = () => {
   let { id } = useParams();
   const { data } = useGetProductByIdQuery(id);
 
   const [selectedImage, setSelectedImage] = useState(0);
+  const [abtab, setAbtab] = useState(1);
   console.log(data);
 
   useEffect(() => {
@@ -56,7 +60,39 @@ const Deatails = () => {
           </div>
         </div>
       </div>
-      <div className="details__bottom"></div>
+      <div className="details__bottom">
+        <div className="abtab__header">
+          <h3
+            onClick={() => setAbtab(1)}
+            className={`${abtab === 1 ? "active" : ""}`}
+          >
+            Product Details
+          </h3>
+          <h3
+            onClick={() => setAbtab(2)}
+            className={`${abtab === 2 ? "active" : ""}`}
+          >
+            Rating & Reviews
+          </h3>
+          <h3
+            onClick={() => setAbtab(3)}
+            className={`${abtab === 3 ? "active" : ""}`}
+          >
+            FAQs
+          </h3>
+        </div>
+        <div className="abtab__body">
+          {abtab === 1 ? (
+            <AbtabDetails />
+          ) : abtab === 2 ? (
+            <AbtabReviews />
+          ) : abtab === 3 ? (
+            <AbtabFaqs />
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
     </section>
   );
 };

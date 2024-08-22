@@ -1,0 +1,66 @@
+.create-products {
+  padding: 0px 20px;
+
+  &__form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__input {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      label {
+        font-size: 14px;
+        color: gray;
+      }
+
+      select,
+      input {
+        height: 40px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 0px 15px;
+        outline: none;
+      }
+
+      textarea {
+        width: 100%;
+        height: 100px;
+        resize: none;
+        padding: 5px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        outline: none;
+      }
+    }
+
+    &__input-photo {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      label {
+        font-size: 14px;
+        color: gray;
+      }
+
+      input {
+        border: 1px solid #000;
+      }
+    }
+
+    button {
+      height: 40px;
+      width: 100%;
+      border: 1px solid gray;
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}

@@ -55,18 +55,6 @@ const Hero = () => {
             <img src={img4} alt="" />
             <img src={img5} alt="" />
           </div>
-          <div className="hero__bottom-wrapper__scroll">
-            <img src={img1} alt="" />
-            <img src={img2} alt="" />
-            <img src={img3} alt="" />
-            <img src={img4} alt="" />
-            <img src={img5} alt="" />
-            <img src={img1} alt="" />
-            <img src={img2} alt="" />
-            <img src={img3} alt="" />
-            <img src={img4} alt="" />
-            <img src={img5} alt="" />
-          </div>
         </div>
       </div>
     </section>

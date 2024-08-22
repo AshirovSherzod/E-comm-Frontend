@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./createadmins.scss";
 import { useGetValue } from "../../../hooks/useGetValue";
 import { useSignUpAdminMutation } from "../../../context/api/adminApi";
+import { Spin, message } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const initialState = {
   fname: "",
@@ -15,7 +17,32 @@ const initialState = {
 
 const CreateAdmins = () => {
   const { formData, handleChange, setFormData } = useGetValue(initialState);
-  const [signUp, { data }] = useSignUpAdminMutation();
+  const [messageApi, contextHolder] = message.useMessage();
+  const [signUp, { data, isLoading, isSuccess, isError, error: dataError }] =
+    useSignUpAdminMutation();
+
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: `${dataError?.data?.msg}`,
+    });
+  };
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: `${data?.msg}`,
+    });
+  };
+
+  useEffect(() => {
+    if (isError) {
+      error();
+    }
+    if (isSuccess) {
+      success();
+    }
+  }, [isError, isSuccess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -95,7 +122,16 @@ const CreateAdmins = () => {
             placeholder="phone number"
           />
         </div>
-        <button>Sign Up</button>
+        {contextHolder}
+        <button>
+          {isLoading ? (
+            <Spin
+              indicator={<LoadingOutlined spin style={{ color: "#fff" }} />}
+            />
+          ) : (
+            "Create Admin"
+          )}
+        </button>
       </form>
     </div>
   );

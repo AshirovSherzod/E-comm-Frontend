@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "./sidebar.scss";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
@@ -8,7 +8,9 @@ import { IoCreateOutline } from "react-icons/io5";
 const Sideber = ({ role }) => {
   return (
     <div className="sidebar">
-      <h1>Dashboard</h1>
+      <Link to={"/"}>
+        <h1>Dashboard</h1>
+      </Link>
       <div className="sidebar__links">
         {role === "owner" ? (
           <>

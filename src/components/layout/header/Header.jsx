@@ -84,7 +84,7 @@ const Header = () => {
               <Link to={"/wishlist"}>
                 <FaRegHeart />
               </Link>
-              <Link to={"/admin"}>
+              <Link to={"/admin/manageproducts"}>
                 <IoPersonCircleOutline />
               </Link>
             </div>

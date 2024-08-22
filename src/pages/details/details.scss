@@ -84,6 +84,28 @@
       }
     }
   }
+
+  &__bottom {
+    .abtab__header {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid #ddd;
+
+      h3 {
+        color: gray;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        padding-bottom: 15px;
+      }
+
+      .active {
+        color: #000;
+        border-bottom: 2px solid #000;
+      }
+    }
+  }
 }
 
 @media (max-width: 1000px) {
