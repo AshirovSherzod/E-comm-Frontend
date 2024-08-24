@@ -20,7 +20,6 @@ const Deatails = () => {
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [abtab, setAbtab] = useState(1);
-  // console.log(data);
 
   useEffect(() => {
     window.scroll(0, 0);

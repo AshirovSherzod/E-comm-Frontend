@@ -46,7 +46,6 @@ const CreateAdmins = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData.role);
 
     signUp(formData);
   };

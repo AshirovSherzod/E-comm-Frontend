@@ -6,7 +6,6 @@ import { useGetProductsQuery } from "../../../context/api/productApi";
 
 const ManageProducts = () => {
   const { data: productData, isLoading } = useGetProductsQuery();
-  console.log(productData);
 
   const columns = [
     {

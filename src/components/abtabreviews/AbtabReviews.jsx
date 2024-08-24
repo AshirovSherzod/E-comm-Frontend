@@ -6,15 +6,13 @@ import { useGetCommentsQuery } from "../../context/api/commentApi";
 
 const AbtabReviews = ({ id }) => {
   const { data } = useGetCommentsQuery();
-  console.log(data);
 
-  let comments = data?.payload?.map((product) => (
+  let comments = data?.payload?.map((product, inx) => (
     <div key={inx} className="abtab-reviews__bottom-comment">
-      <h4>{product.adminId.username}</h4>
+      {/* <h4>{product.adminId.username}</h4> */}
       <p>{product.text}</p>
     </div>
   ));
-  console.log(comments);
 
   return (
     <div className="abtab-reviews">
