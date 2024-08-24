@@ -1,5 +1,8 @@
 .empty {
   padding: 100px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -8,12 +11,16 @@
     gap: 20px;
 
     img {
-      width: 25%;
+      width: 20%;
     }
 
     h1 {
-      font-size: 34px;
-      font-weight: 900;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    p {
+      text-align: center;
     }
 
     button {
@@ -29,21 +36,21 @@
 
 @media (max-width: 600px) {
   .empty__wrapper img {
-    width: 40%;
+    width: 30%;
   }
 }
 
-@media (max-width: 600px) {
-  .empty__wrapper {
-    img {
-      width: 50%;
-    }
+// @media (max-width: 600px) {
+//   .empty__wrapper {
+//     img {
+//       width: 50%;
+//     }
 
-    h1 {
-      font-size: 24px;
-    }
-  }
-}
+//     h1 {
+//       font-size: 24px;
+//     }
+//   }
+// }
 
 @media (max-width: 600px) {
   .empty__wrapper button {

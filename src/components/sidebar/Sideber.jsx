@@ -30,6 +30,9 @@ const Sideber = ({ role }) => {
         <NavLink to={"/admin/manageproducts"}>
           <MdOutlineDashboardCustomize /> Manage Products
         </NavLink>
+        <NavLink to={"/admin/managecategory"}>
+          <MdOutlineDashboardCustomize /> Manage Category
+        </NavLink>
       </div>
     </div>
   );

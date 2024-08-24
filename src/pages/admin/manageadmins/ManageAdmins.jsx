@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Space, Table, Modal, Button } from "antd";
+import React from "react";
+import { Space, Table } from "antd";
 
 import "./manageadmins.scss";
 import {
@@ -39,7 +39,6 @@ const ManageAdmins = () => {
       render: (_, record) => (
         <Space size="middle">
           <button>Edit</button>
-          
         </Space>
       ),
     },

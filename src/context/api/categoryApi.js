@@ -1,6 +1,6 @@
 import { api } from "./index";
 
-export const productApi = api.injectEndpoints({
+export const categoryApi = api.injectEndpoints({
   endpoints: (build) => ({
     getAllCategories: build.query({
       query: (params) => ({
@@ -9,7 +9,15 @@ export const productApi = api.injectEndpoints({
       }),
       providesTags: ["Category"],
     }),
+    deleteCategory: build.mutation({
+      query: (id) => ({
+        url: `/category/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Category"],
+    }),
   }),
 });
 
-export const { useGetAllCategoriesQuery } = productApi;
+export const { useGetAllCategoriesQuery, useDeleteCategoryMutation } =
+  categoryApi;

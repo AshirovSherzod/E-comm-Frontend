@@ -1,6 +1,6 @@
 import { api } from "./index";
 
-export const productApi = api.injectEndpoints({
+export const adminApi = api.injectEndpoints({
   endpoints: (build) => ({
     getProfile: build.query({
       query: (params) => ({
@@ -55,5 +55,5 @@ export const {
   useGetProfileQuery,
   useGetAdminsQuery,
   useSignUpAdminMutation,
-  useDeleteAdminMutation
-} = productApi;
+  useDeleteAdminMutation,
+} = adminApi;

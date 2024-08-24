@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetProductByIdQuery } from "../../context/api/productApi";
+import {
+  useGetProductByIdQuery,
+  useGetProductsQuery,
+} from "../../context/api/productApi";
 import { IoStar } from "react-icons/io5";
 import Counter from "../../components/counter/Counter";
 
@@ -8,21 +11,24 @@ import "./details.scss";
 import AbtabDetails from "../../components/abtabdetails/AbtabDetails";
 import AbtabReviews from "../../components/abtabreviews/AbtabReviews";
 import AbtabFaqs from "../../components/abtabfaqs/AbtabFaqs";
+import Products from "../../components/arrivals/Products";
 
 const Deatails = () => {
   let { id } = useParams();
   const { data } = useGetProductByIdQuery(id);
+  const { data: dataProducts, isLoading } = useGetProductsQuery({ limit: 4 });
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [abtab, setAbtab] = useState(1);
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     window.scroll(0, 0);
-  }, []);
+  }, [id]);
 
   let images = data?.payload?.urls.map((el, inx) => (
     <img
+      key={inx}
       src={el}
       className={`${inx === selectedImage ? "active" : ""}`}
       onClick={() => setSelectedImage(inx)}
@@ -85,7 +91,7 @@ const Deatails = () => {
           {abtab === 1 ? (
             <AbtabDetails />
           ) : abtab === 2 ? (
-            <AbtabReviews />
+            <AbtabReviews id={id} />
           ) : abtab === 3 ? (
             <AbtabFaqs />
           ) : (
@@ -93,6 +99,11 @@ const Deatails = () => {
           )}
         </div>
       </div>
+      <Products
+        title={"YOU MIGHT ALSO LIKE"}
+        data={dataProducts ? dataProducts?.payload : []}
+        isLoading={isLoading}
+      />
     </section>
   );
 };

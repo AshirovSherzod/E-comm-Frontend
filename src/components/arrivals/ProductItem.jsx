@@ -7,7 +7,7 @@ import { like } from "../../context/slices/wishlistSlice";
 import { Link } from "react-router-dom";
 import { addToCart } from "../../context/slices/cartSlice";
 
-const ProductItem = ({ title, price, img, data }) => {
+const ProductItem = ({ title, price, oldPrice, img, data }) => {
   const dispatch = useDispatch();
   const wishlistData = useSelector((state) => state.wishlist.value);
   const cartData = useSelector((state) => state.cart.value);
@@ -15,7 +15,7 @@ const ProductItem = ({ title, price, img, data }) => {
   return (
     <div className="arrivals__card">
       <div className="arrivals__card-img">
-        <Link to={`details/${data._id}`}>
+        <Link to={`/details/${data._id}`}>
           <img src={img} alt="" />
         </Link>
         <div className="arrivals__card-img__btns">
@@ -48,7 +48,18 @@ const ProductItem = ({ title, price, img, data }) => {
           <IoStar style={{ color: "gold" }} />
           <IoStar style={{ color: "gold" }} />
         </p>
-        <p>${price}</p>
+        <div className="arrivals__card-content__price">
+          <p>
+            ${price} {oldPrice > price ? <span>${oldPrice}</span> : <></>}
+          </p>
+          {oldPrice > price ? (
+            <p className="amount">
+              {Math.round(((oldPrice - price) / oldPrice) * 100)}%
+            </p>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );

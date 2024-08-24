@@ -2,10 +2,13 @@ import React from "react";
 import { IoStar } from "react-icons/io5";
 
 import "./products.scss";
-import { productApi } from "../../context/api/productApi";
+// import { productApi } from "../../context/api/productApi";
 import ProductItem from "./ProductItem";
+import { useLocation } from "react-router-dom";
 
 const Arrivals = ({ title, data, isSuccess, isLoading }) => {
+  const { pathname } = useLocation();
+
   let cards = data.map((product) => (
     <ProductItem
       key={product._id}
@@ -13,6 +16,7 @@ const Arrivals = ({ title, data, isSuccess, isLoading }) => {
       price={product.price}
       data={product}
       img={product.urls[0]}
+      oldPrice={product.oldPrice}
     />
   ));
 
@@ -57,7 +61,11 @@ const Arrivals = ({ title, data, isSuccess, isLoading }) => {
       ) : (
         <div className="arrivals__cards">{cards}</div>
       )}
-      <button className="viewAll">View All</button>
+      {pathname.includes("/wishlist") || pathname.includes("/cart") ? (
+        <></>
+      ) : (
+        <button className="viewAll">View All</button>
+      )}
     </section>
   );
 };

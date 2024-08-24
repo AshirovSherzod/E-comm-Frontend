@@ -66,7 +66,11 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <Empty title={"Your cart is empty"} img={img} />
+        <Empty
+          title={"Your cart is empty"}
+          img={img}
+          desc={"Your cart is empty. Add items to start your shopping journey"}
+        />
       )}
     </main>
   );

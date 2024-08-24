@@ -14,7 +14,13 @@ const Wishlist = () => {
       {wishlistData.length ? (
         <Products title={"Wishlist"} data={wishlistData} />
       ) : (
-        <Empty title={"Your wishlist empty"} img={img} />
+        <Empty
+          title={"Your wishlist empty"}
+          img={img}
+          desc={
+            "Your wishlist is empty. Start adding items to save your favorites!"
+          }
+        />
       )}
     </section>
   );
