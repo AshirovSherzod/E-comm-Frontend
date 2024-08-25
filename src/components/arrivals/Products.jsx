@@ -22,7 +22,7 @@ const Arrivals = ({ title, data, isSuccess, isLoading }) => {
 
   return (
     <section className="arrivals container">
-      <h1>{title}</h1>
+      {pathname.includes("/shop") ? <></> : <h1>{title}</h1>}
       {isLoading ? (
         <div className="arrivals__loading">
           <div className="arrivals__loader">
@@ -61,7 +61,9 @@ const Arrivals = ({ title, data, isSuccess, isLoading }) => {
       ) : (
         <div className="arrivals__cards">{cards}</div>
       )}
-      {pathname.includes("/wishlist") || pathname.includes("/cart") ? (
+      {pathname.includes("/wishlist") ||
+      pathname.includes("/cart") ||
+      pathname.includes("/shop") ? (
         <></>
       ) : (
         <button className="viewAll">View All</button>

@@ -1,0 +1,30 @@
+.shop {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  &__left {
+    width: 20%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__left-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &__right {
+    width: 80%;
+  }
+}

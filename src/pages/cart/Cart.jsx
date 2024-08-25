@@ -1,20 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
 
 import Empty from "../../components/empty/Empty";
 import Counter from "../../components/counter/Counter";
 import img from "../../assets/images/empty-cart.webp";
 import "./cart.scss";
+import { removeFromCart } from "../../context/slices/cartSlice";
 
 const Cart = () => {
   const cartData = useSelector((state) => state.cart.value);
+  const dispatch = useDispatch();
 
-  let carts = cartData?.map((product) => (
-    <div className="cart__left-card">
+  let carts = cartData?.map((product, inx) => (
+    <div key={inx} className="cart__left-card">
       <div className="cart__left-card__content">
         <div className="cart__left-card__content-img">
-          <img src={product.urls[0]} alt="" />
+          <img src={product?.urls[0]} alt="" />
         </div>
         <div className="cart__left-card__content-title">
           <h3 title={product.title} className="line-clamp">
@@ -24,10 +26,13 @@ const Cart = () => {
         </div>
       </div>
       <div className="cart__left-card__btns">
-        <button className="delete">
+        <button
+          onClick={() => dispatch(removeFromCart(product._id))}
+          className="delete"
+        >
           <FaTrashAlt />
         </button>
-        <Counter />
+        <Counter data={product} />
       </div>
     </div>
   ));

@@ -30,7 +30,8 @@ const Header = () => {
     };
   }, []);
 
-  if (pathname.includes("/sign-in") || pathname.includes("/admin")) return <></>;
+  if (pathname.includes("/sign-in") || pathname.includes("/admin"))
+    return <></>;
 
   return (
     <>
@@ -67,7 +68,7 @@ const Header = () => {
                     <IoClose />
                   </button>
                 </div>
-                <li>Shop</li>
+                <Link to={"/shop "}>Shop</Link>
                 <li>On Sale</li>
                 <li>New Arrivals</li>
                 <li>Brands</li>

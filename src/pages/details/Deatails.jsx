@@ -19,7 +19,7 @@ const Deatails = () => {
   const { data: dataProducts, isLoading } = useGetProductsQuery({ limit: 4 });
 
   const [selectedImage, setSelectedImage] = useState(0);
-  const [abtab, setAbtab] = useState(1);
+  const [abtab, setAbtab] = useState(2);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -60,7 +60,7 @@ const Deatails = () => {
             <p>{data?.payload?.desc}</p>
           </div>
           <div className="details__top-right__btns">
-            <Counter />
+            <Counter data={data} />
             <button className="addtocart">Add to card</button>
           </div>
         </div>
@@ -71,13 +71,13 @@ const Deatails = () => {
             onClick={() => setAbtab(1)}
             className={`${abtab === 1 ? "active" : ""}`}
           >
-            Product Details
+            Details
           </h3>
           <h3
             onClick={() => setAbtab(2)}
             className={`${abtab === 2 ? "active" : ""}`}
           >
-            Rating & Reviews
+            Reviews
           </h3>
           <h3
             onClick={() => setAbtab(3)}

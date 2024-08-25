@@ -147,6 +147,14 @@
   }
 }
 
+@media (max-width: 600px) {
+  .details__bottom {
+    .abtab__header h3 {
+      font-size: 16px;
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .details__top-left {
     height: 450px;

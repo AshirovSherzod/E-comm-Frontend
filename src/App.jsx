@@ -13,6 +13,7 @@ import CreateProducts from "./pages/admin/createproducts/CreateProducts";
 import ManageAdmins from "./pages/admin/manageadmins/ManageAdmins";
 import CreateAdmins from "./pages/admin/createadmins/CreateAdmins";
 import ManageCategory from "./pages/admin/managecategory/ManageCategory";
+import Shop from "./pages/shop/Shop";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/details/:id" element={<Deatails />} />

@@ -18,4 +18,14 @@
   }
 }
 
+@media (max-width: 500px) {
+  .counter {
+    width: 90px;
+    button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
 

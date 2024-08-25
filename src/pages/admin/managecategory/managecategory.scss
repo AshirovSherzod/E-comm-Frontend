@@ -41,6 +41,30 @@
     }
   }
 
+  .edit-category {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    input {
+        height: 40px;
+        outline: none;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0px 15px;
+    }
+
+    button {
+        height: 40px;
+        background-color: #000;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        color: #fff;
+    }
+  }
+
+  .edit-btn,
   .delete-btn {
     background-color: transparent;
     border: 1px solid transparent;

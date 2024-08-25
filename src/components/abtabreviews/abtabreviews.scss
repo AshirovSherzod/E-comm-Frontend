@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__top-btns {
@@ -17,26 +18,25 @@
     flex-direction: row;
     gap: 10px;
 
-    .sliders {
+    .sliders,
+    select,
+    .review {
       height: 40px;
-      width: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid transparent;
       border-radius: 30px;
+    }
+
+    .sliders {
+      width: 50px;
       font-size: 18px;
       background-color: #f0f0f0;
     }
 
     select {
-      height: 40px;
       width: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid transparent;
-      border-radius: 30px;
       background-color: #f0f0f0;
       padding: 0px 10px;
       font-size: 16px;
@@ -45,11 +45,69 @@
 
     .review {
       width: 120px;
-      height: 40px;
-      border: 1px solid transparent;
-      border-radius: 30px;
       background-color: #000;
       color: #fff;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    &__card {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .abtab-reviews__top-btns {
+    gap: 5px;
+
+    .sliders,
+    select,
+    .review {
+      height: 35px;
+      font-size: 12px;
+    }
+
+    select,
+    .review {
+      width: 100px;
+    }
+  }
+
+  .abtab-reviews__bottom {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 460px) {
+  .abtab-reviews__top-btns {
+    select {
+      // width: 100px;
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .abtab-reviews__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+    &-btns {
+      width: 100%;
+      .review {
+        width: 100%;
+      }
     }
   }
 }

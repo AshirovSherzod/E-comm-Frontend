@@ -6,24 +6,32 @@ import {
   useCreateCategoryMutation,
   useDeleteCategoryMutation,
   useGetAllCategoriesQuery,
+  useUpdateCategoryMutation,
 } from "../../../context/api/categoryApi";
 import Modal from "../../../components/modal/Modal";
 
 const ManageCategory = () => {
-  const [modal, setModal] = useState(false);
   const [id, setId] = useState(null);
   const [title, setTitle] = useState("");
+  const [modal, setModal] = useState(false);
+  const [editId, setEditId] = useState(null);
+  const [editValue, setEditValue] = useState("");
   const [showForm, setShowForm] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+
   const [
     createCategory,
     { data: createdData, isLoading, isSuccess, isError, error: dataError },
   ] = useCreateCategoryMutation();
+
   const { data: categoryData } = useGetAllCategoriesQuery();
   const [
     deleteCategory,
     { data: deletedCategory, isSuccess: isSuccessCategory },
   ] = useDeleteCategoryMutation();
+
+  const [updateCategory, { data: updatedData }] = useUpdateCategoryMutation();
 
   const error = () => {
     messageApi.open({
@@ -57,6 +65,14 @@ const ManageCategory = () => {
     setTitle("");
   };
 
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    let updateObj = {
+      title: editValue,
+    };
+    updateCategory({ id: editId, body: updateObj });
+  };
+
   const columns = [
     {
       title: "Created By",
@@ -82,6 +98,16 @@ const ManageCategory = () => {
             }}
           >
             Delete
+          </button>
+          <button
+            className="edit-btn"
+            onClick={() => {
+              setEditValue(record.category);
+              setEditId(record.id);
+              setEditModal(true);
+            }}
+          >
+            Edit
           </button>
         </Space>
       ),
@@ -151,6 +177,21 @@ const ManageCategory = () => {
               </button>
             </div>
           </div>
+        </Modal>
+      ) : (
+        <></>
+      )}
+      {editModal ? (
+        <Modal setModal={setEditModal}>
+          <form onSubmit={handleEditSubmit} className="edit-category" action="">
+            <input
+              value={editValue}
+              onChange={(e) => setEditValue(e.target.value)}
+              type="text"
+              placeholder="Edit category"
+            />
+            <button>Edit Category</button>
+          </form>
         </Modal>
       ) : (
         <></>
